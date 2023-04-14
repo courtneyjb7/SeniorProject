@@ -1,0 +1,10 @@
+*   mediapipe only works with Python 3.7-3.10, so use 
+    > python main.py
+    instead of 
+    > py main.py 
+    or the VS Code python debugger 
+
+*   pip install opencv-python mediapipe pyfirmata
+
+*   AdruinoIDE -> File -> Examples -> Firmata -> StandardFirmata
+    upload StandardFirmata and run main.py
