@@ -7,21 +7,16 @@ import mediapipe as mp
 import numpy as np
 import follow_controller as cnt
 
-# TODO: 
-#   - could check if arm is straight -> angle at elbow (from shoulder to elbow to wrist) is close to 180
-#   - following
-#       - every three ish frames
-#       - scale up slope to servo angle
-#       - send angle (not string indicator) to controller 
-#       - cap angle values
+
 max_angle = 135
 mid_angle = 90
 min_angle = 45
 max_arm_slope = 0
 min_arm_slope = -5
-min_head_y = -15
-max_head_y = 15
+min_head_y = -17
+max_head_y = 17
 frames_skip = 1
+head_frames_skip = 1
 
 
 
@@ -141,8 +136,17 @@ if __name__ == "__main__":
 					y = angles[1] * 360			
 
 					# Map angle and send to controller (My head code)
-					print(map_head(y))
-					cnt.head(map_head(y))
+					head_frame += 1
+					if head_frame == head_frames_skip:
+						head_frame = 0
+						head_angle = round(head_avgAngle / head_frames_skip)
+						print(map_head(head_angle))
+						cnt.head(map_head(head_angle))
+						head_avgAngle = y
+					else:
+						head_avgAngle += y
+					# print(map_head(y))
+					# cnt.head(map_head(y))
 
 			        # See where the user's head tilting
 					if y < -10:
