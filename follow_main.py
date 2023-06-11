@@ -11,12 +11,12 @@ import follow_controller as cnt
 max_angle = 135
 mid_angle = 90
 min_angle = 45
-max_arm_slope = 0
+max_arm_slope = 0.5
 min_arm_slope = -5
 min_head_y = -17
 max_head_y = 17
 frames_skip = 1
-head_frames_skip = 1
+head_frames_skip = 2
 
 
 
@@ -165,8 +165,8 @@ if __name__ == "__main__":
 					cv2.line(image, p1, p2, (255, 0, 0), 3)
 					image = cv2.flip(image, 1)
 					# Add the text on the image
-					cv2.putText(image, text, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 2)
-					cv2.putText(image, "y: " + str(np.round(y,2)), (500, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+					# cv2.putText(image, text, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 2)
+					# cv2.putText(image, "y: " + str(np.round(y,2)), (500, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 			### End Head Code ###
 
 			vis_threshold = 0.7
