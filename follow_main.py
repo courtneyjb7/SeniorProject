@@ -1,5 +1,6 @@
 # Help from Mediapipe docs: https://github.com/google/mediapipe/blob/master/docs/solutions/pose.md
-# Head detection code came from tutorial: https://www.youtube.com/watch?v=-toNMaS4SeQ&t=747s
+# All Head detection code (outside of one portion indicated below) came from this tutorial: 
+ 	# https://www.youtube.com/watch?v=-toNMaS4SeQ&t=747s
     # with this github: https://github.com/niconielsen32/ComputerVision/blob/master/headPoseEstimation.py 
 
 import cv2
