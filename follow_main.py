@@ -163,13 +163,17 @@ if __name__ == "__main__":
 					p2 = (int(nose_2d[0] + y * 10) , int(nose_2d[1] - x * 10))
 					
 					cv2.line(image, p1, p2, (255, 0, 0), 3)
-					image = cv2.flip(image, 1)
-					# Add the text on the image
+
+					# Add the text on the image	 (must flip image here if keeping head text)
+					# image = cv2.flip(image, 1)
 					# cv2.putText(image, text, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 2)
-					# cv2.putText(image, "y: " + str(np.round(y,2)), (500, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+					# cv2.putText(image, "Head y: " + str(np.round(y,2)), (0, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 			### End Head Code ###
 
+			# if no head text, best to keep image flip outside of visibility condition
+			image = cv2.flip(image, 1)
 			vis_threshold = 0.7
+
 			#### Start Right Arm Code ####	
 			try: 
 				landmarks = results.pose_landmarks.landmark
@@ -194,7 +198,8 @@ if __name__ == "__main__":
 					cv2.putText(image, "slope: " + str(round(rightM, 3)), 
 									tuple(np.multiply([1-right_shoulder.x, right_shoulder.y], [640, 480]).astype(int)), 
 									cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
-										)   							
+										)   	
+					cv2.putText(image, "Right Arm Slope: " + str(round(rightM, 3)), (0, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)						
 			except Exception as e: 
 				print(e)
 			#### End Right Arm Code ####
@@ -222,7 +227,8 @@ if __name__ == "__main__":
 					cv2.putText(image, "slope: " + str(round(leftM, 3)), 
 								tuple(np.multiply([1-left_shoulder.x, left_shoulder.y], [640, 480]).astype(int)), 
 								cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
-									)  	
+									)
+					cv2.putText(image, "Left Arm Slope: " + str(round(leftM, 3)), (0, 450), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)  	
 										
 			except Exception as e: 
 				print(e)
