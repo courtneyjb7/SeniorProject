@@ -4,7 +4,7 @@ Courtney Barber - Senior Project 2023
 
 Cal Poly San Luis Obispo
 
-![](https://github.com/courtneyjb7/robot_parrot/blob/main/Images/parrot.png | width=756)
+<img src="https://github.com/courtneyjb7/robot_parrot/blob/main/Images/parrot.png" width="300"><img src="https://github.com/courtneyjb7/robot_parrot/blob/main/Images/arm-up.jpg" width="300">
 
 <details open="open">
 <summary>Table of Contents</summary>
