@@ -2,7 +2,7 @@
 
 Courtney Barber - Senior Project 2023
 
-Cal Poly San Luis Obispo
+### This robotic skeleton, covered by a parrot stuffed animal, uses Mediapipe to detect and follow a person's movement from a live video.
 
 <img src="https://github.com/courtneyjb7/robot_parrot/blob/main/Images/parrot.png" width="300"><img src="https://github.com/courtneyjb7/robot_parrot/blob/main/Images/arm-up.jpg" width="300">
 
